@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     AudioSource m_AudioSource;
     Vector3 m_Movement;
     Quaternion m_Rotation = Quaternion.identity;
+    
 
     void Start ()
     {
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate ()
     {
         var pos = MoveAction.ReadValue<Vector2>();
+        // Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         
         float horizontal = pos.x;
         float vertical = pos.y;
@@ -40,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         bool isWalking = hasHorizontalInput || hasVerticalInput;
         m_Animator.SetBool ("IsWalking", isWalking);
         
+        // Add Dust Particle Effects
         if (isWalking)
         {
             CreateDust();
