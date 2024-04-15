@@ -8,23 +8,23 @@ Building features on top of [3D Beginner: Complete Project](https://assetstore.u
 
 
 ### 1. Dot Product
-cone of vision for the ghosts
-if the ghost sees the player better when it's looking directly at the player and not at all when it's 90 degrees or more away from the ghost's forward direction.
+John Lemon fear when he looks at an enemy increases. The more directly he looks at an enemy (ghost or gargoyle), the more he sweats.
 
 #### Implementation Details:
+Created an "Enemy" tag and tagged all the enemies accordingly. Made a script based on "Observer.cs" and made it for John called "PlayerView.cs". Made a collider for John's vision and if an enemy enters, the dot product of the displacement vector and John's forward direction determines who much the sweat particle effect produces particles.
 
 ### 2. Linear Interpolation
 Added smooth rotation and movement.
 
 #### Implementation Details:
-In `PlayerMovement` script, for `OnAnimatorMove` method, implemented **Lerp** foor movement and **Slerp** for rotation. 
+In `PlayerMovement` script, for `OnAnimatorMove` method, implemented **Lerp** for movement and **Slerp** for rotation. 
 
 
 ### 3. Particle Effect
-The particle effect of the dust trail behind the cat when he moves.
+The particle effect of the dust trail behind the cat when he moves. Also, sweat particles effect when you look at an enemy a lot.
 
 #### Implementation Details:
-
+Particle effect under character parent. 
 
 ### 4. Sound Effect 
 
