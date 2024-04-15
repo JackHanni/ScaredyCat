@@ -11,7 +11,7 @@ Building features on top of [3D Beginner: Complete Project](https://assetstore.u
 John Lemon fear when he looks at an enemy increases. The more directly he looks at an enemy (ghost or gargoyle), the more he sweats.
 
 #### Implementation Details:
-Created an "Enemy" tag and tagged all the enemies accordingly. Made a script based on "Observer.cs" and made it for John called "PlayerView.cs". Made a collider for John's vision and if an enemy enters, the dot product of the displacement vector and John's forward direction determines who much the sweat particle effect produces particles.
+Created an `Enemy` tag and tagged all the enemies accordingly. Made a script based on `Observer` and made it for John called `PlayerView`. Made a collider for John's vision and if an enemy enters, the dot product of the displacement vector and John's forward direction determines how much the sweat particle effect produces particles.
 
 ### 2. Linear Interpolation
 Added smooth rotation and movement.
@@ -24,7 +24,7 @@ In `PlayerMovement` script, for `OnAnimatorMove` method, implemented **Lerp** fo
 The particle effect of the dust trail behind the cat when he moves. Also, sweat particles effect when you look at an enemy a lot.
 
 #### Implementation Details:
-Particle effect under character parent. 
+Particle effect under character parent. Dust particle effect is emitting from back of feet when there is movement, the logic is in the `PlayerMovement` script on line 48. The sweat is talked about more in the dot product requirement.
 
 ### 4. Sound Effect 
 
