@@ -7,8 +7,9 @@ public class PlayerMovement : MonoBehaviour
 {
     public InputAction MoveAction;
     public ParticleSystem dust;
+    public float moveSpeed = 100f;
     
-    public float turnSpeed = 20f;
+    public float turnSpeed = 15f;
 
     Animator m_Animator;
     Rigidbody m_Rigidbody;
@@ -62,8 +63,14 @@ public class PlayerMovement : MonoBehaviour
 
     void OnAnimatorMove ()
     {
-        m_Rigidbody.MovePosition (m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude);
-        m_Rigidbody.MoveRotation (m_Rotation);
+        // Change to Lerp Movement
+        Vector3 targetPosition = m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude;
+        m_Rigidbody.MovePosition(Vector3.Lerp(m_Rigidbody.position, targetPosition, Time.deltaTime * moveSpeed));
+        
+        // Change to Lerp Rotation
+        Quaternion targetRotation = Quaternion.Slerp(transform.rotation, m_Rotation, Time.deltaTime * turnSpeed);
+        m_Rigidbody.MoveRotation(targetRotation);
+        
     }
 
     void CreateDust() {
