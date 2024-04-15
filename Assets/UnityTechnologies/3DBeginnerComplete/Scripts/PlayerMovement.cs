@@ -43,10 +43,9 @@ public class PlayerMovement : MonoBehaviour
         bool isWalking = hasHorizontalInput || hasVerticalInput;
         m_Animator.SetBool ("IsWalking", isWalking);
         
-        // Add Dust Particle Effects
         if (isWalking)
         {
-            CreateDust();
+            CreateDust(); // Add Dust Particle Effects
             if (!m_AudioSource.isPlaying)
             {
                 m_AudioSource.Play();
